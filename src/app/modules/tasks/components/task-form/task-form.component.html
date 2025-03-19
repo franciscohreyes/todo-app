@@ -1,0 +1,41 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+  <h2 class="mat-headline">{{ task ? 'Actualizar Tarea' : 'Agregar Nueva Tarea' }}</h2>
+
+  <!-- Título -->
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" required />
+    <mat-error *ngIf="taskForm.get('title')?.hasError('required')">El título es obligatorio.</mat-error>
+  </mat-form-field>
+
+  <!-- Descripción -->
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="description" rows="4" required></textarea>
+    <mat-error *ngIf="taskForm.get('description')?.hasError('required')">La descripción es obligatoria.</mat-error>
+  </mat-form-field>
+
+  <!-- Completada -->
+  <mat-checkbox formControlName="completed">Completada</mat-checkbox>
+
+  <!-- Botones -->
+  <div class="form-actions">
+    <button
+      mat-raised-button
+      type="button"
+      (click)="resetForm()"
+      color="warn"
+    >
+      Cancelar
+    </button>
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="taskForm.invalid"
+      color="primary"
+    >
+      {{ task ? 'Actualizar' : 'Agregar' }}
+    </button>
+  </div>
+</form>
+

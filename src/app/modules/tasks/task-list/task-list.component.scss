@@ -1,0 +1,38 @@
+.completed-title {
+  text-decoration: line-through;
+}
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+mat-card-actions button {
+  margin-right: 8px;
+}
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .task-list-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 16px;
+    }
+
+    .task-form-container {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .task-list {
+      flex: 2;
+      min-width: 300px;
+    }
+  }
+}

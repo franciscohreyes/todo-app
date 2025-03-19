@@ -1,0 +1,31 @@
+<div class="login-container flex items-center justify-center min-h-screen">
+  <mat-card class="p-8 shadow-xl rounded-lg bg-white">
+    <mat-card-content>
+      <h2 class="login-title text-3xl font-semibold text-center text-gray-800 mb-6">Iniciar sesión</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-6">
+        <!-- Correo input -->
+        <mat-form-field>
+          <mat-label>Correo electrónico</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            id="email"
+            placeholder="Correo electrónico"
+            required
+            autocomplete="email"
+            class="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">El campo de email es obligatorio.</mat-error>
+        </mat-form-field>
+
+        <!-- Botón iniciar sesion -->
+        <button mat-raised-button color="primary" type="submit" class="w-full py-3 text-lg font-semibold transition-all duration-200 ease-in-out hover:bg-blue-700">
+          Ingresar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
